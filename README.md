@@ -7,7 +7,7 @@
   2.编写一个类实现 MessageHandler 接口
 
   3.使用TiandeMulticastSocket关键类开启组播服务:
-
+```java
     MyMessageHandler handler = new MyMessageHandler();
 
     TiandeMulticastSocket tiandeMulticastSocket = new TiandeMulticastSocket();
@@ -18,11 +18,12 @@
     tiandeMulticastSocket.setReceivePacketSize(1024 * 60);	
     tiandeMulticastSocket.registerHandler(handler);
     tiandeMulticastSocket.start();
-
+```
   4.发送组播消息:
-
+```java
     TiandeMulticastMessage msg = new TiandeMulticastMessage();
     msg.setMethod("register");
     msg.setProperty("key", "value");
     msg.setBody("Hello a big data now");
     tiandeMulticastSocket.send(msg);
+```
